@@ -1,1 +1,13 @@
+<%- include('../partials/head') %>
+
 <h1>View Routines Page</h1>
+
+
+
+<% routines.forEach((r)=> { %>
+
+<p> <%= r.name %> </p>
+
+    <% }); %>
+
+<%- include('../partials/foot') %>

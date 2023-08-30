@@ -2,11 +2,71 @@ const Routine = require('../models/routines');
 
 const routinesController = {
     index: async (req, res)=>{
-        const routines = await Routine.find(); 
-        const exercises = await Exercise.find();  
-        res.render('routines/index', {
-            routines: routines,
-            exercises: exercises
-        })
+        try {
+            const routines = await Routine.find(); 
+                res.render('routines/index', {
+                    routines: routines
+            })
+        }catch(err){
+            res.send(err)
+        }
     },
+    // new: async (req, res) => {
+    //     try{ 
+    //         const exercises = await Exercise.find(); 
+    //         res.render('routines/new', {
+    //         exercises: exercises
+    //         })
+    //     }catch(err){
+    //         res.send(err)
+    //     }
+    // },
+    // create: async (req, res) => {
+    //     try{
+    //         req.body.user = req.user._id;
+    //         req.body.userName = req.user.name;
+    //         req.body.userAvatar = req.user.avatar;
+    //         const newRoutine = await Routine.create(req.body);
+    //         res.redirect('/routines')
+    //     }catch(err){
+    //         res.send(err)
+    //     }
+    // },
+    // show: async (req, res) => {
+    //     const routine = await Routine.findById(req.params.id)
+    //     const exercises = await Exercise.find(); 
+    //     res.render('routines/show', {
+    //         routine: routine, 
+    //         exercises: exercises
+    //     })
+    // },
+    // delete: async (req, res) => {
+    //     try{
+    //         const deletedRoutine = await Routine.findByIdAndDelete(req.params.id)
+    //         res.redirect('/routines')
+    //     }catch(err){
+    //         res.send(err)
+    //     }
+    // },
+    // edit: async (req, res) => {
+    //     try{ 
+    //         const routine = await Routine.findById(req.params.id)
+    //         const exercises = await Exercise.find(); 
+    //         res.render('routines/edit', {
+    //         routine: routine,
+    //         exercises: exercises
+    //         })
+    //     }catch(err){
+    //         res.send(err)
+    //     }
+    // },
+    // update: async (req, res) => {
+    //     try{
+
+    //     }catch(err){
+    //         res.send(err)
+    //     }
+    // }
 }
+
+module.exports = routinesController

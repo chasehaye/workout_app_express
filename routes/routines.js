@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const routinesController = require('../controllers/routines')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', routinesController.index)
+// router.get('/new', routinesController.new)
+// router.post('/', ensureLoggedIn, routinesController.create)
+// router.get('/:id', routinesController.show)
+// router.delete('/:id', ensureLoggedIn, routinesController.delete)
+// router.get('/:id/edit', routinesController.edit)
+// router.put('/:id', ensureLoggedIn, routinesController.update)
+// router.get('/seed/1/2/3', routinesController.seed)
 
 module.exports = router;
