@@ -3,6 +3,11 @@
 <h1>View Routines Page</h1>
 
 
+<!-- Request to make a new form page -->
+<form action="/routines/<%=routines._id%>/new">
+    <input type="submit" value="Make a new routine">
+</form>
+<!--  -->
 
 <% routines.forEach((r)=> { %>
 

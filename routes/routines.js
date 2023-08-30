@@ -3,8 +3,8 @@ var router = express.Router();
 const routinesController = require('../controllers/routines')
 
 router.get('/', routinesController.index)
-// router.get('/new', routinesController.new)
-// router.post('/', ensureLoggedIn, routinesController.create)
+router.get('/new', routinesController.new)
+router.post('/', routinesController.create)
 // router.get('/:id', routinesController.show)
 // router.delete('/:id', ensureLoggedIn, routinesController.delete)
 // router.get('/:id/edit', routinesController.edit)

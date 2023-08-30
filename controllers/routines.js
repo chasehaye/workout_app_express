@@ -11,27 +11,22 @@ const routinesController = {
             res.send(err)
         }
     },
-    // new: async (req, res) => {
-    //     try{ 
-    //         const exercises = await Exercise.find(); 
-    //         res.render('routines/new', {
-    //         exercises: exercises
-    //         })
-    //     }catch(err){
-    //         res.send(err)
-    //     }
-    // },
-    // create: async (req, res) => {
-    //     try{
-    //         req.body.user = req.user._id;
-    //         req.body.userName = req.user.name;
-    //         req.body.userAvatar = req.user.avatar;
-    //         const newRoutine = await Routine.create(req.body);
-    //         res.redirect('/routines')
-    //     }catch(err){
-    //         res.send(err)
-    //     }
-    // },
+    new: async (req, res) => {
+        try{ 
+            res.render('routines/new', {
+            })
+        }catch(err){
+            res.send(err)
+        }
+    },
+    create: async (req, res) => {
+        try{
+            const newRoutine = await Routine.create(req.body);
+            res.redirect('/routines')
+        }catch(err){
+            res.send(err)
+        }
+    },
     // show: async (req, res) => {
     //     const routine = await Routine.findById(req.params.id)
     //     const exercises = await Exercise.find(); 
